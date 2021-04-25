@@ -7,33 +7,18 @@
       <![CDATA[
         /* userMapper.insert */
         INSERT INTO tb_comm_log_mst
-        ( , SCRN_ID
-          , USER_ID
-          , REQ_TP_CD
-          , ALL_URL_CTNTS
-          , SECT_URL_CTNTS
-          , REQ_PARAM_CTNTS
-          , REQ_TRX_CTNTS
-          , CNTN_IP
-          , REG_ID
-          , REG_DTM
-          , MOD_ID
-          , MOD_DTM
-        )
-        VALUES (
-               , #{scrnId}            
-               , #{userId}
-               , #{reqTpCd}
-               , #{allUrlCtnts}
-               , #{sectUrlCtnts}
-               , #{reqParamCtnts}
-               , #{reqTrxCtnts}
-               , #{cntnIp}
-               , #{regId}
-               , #{regDtm}
-               , #{modId}
-               , #{modDtm}
-               )
+        ( user_id
+        , pwd_not_match_cnt
+        , user_name
+        , user_pwd
+        , user_tel_no
+        , password_not_match_cnt)
+        VALUES ( #{user_id}
+               , 0
+               , #{user_name}
+               , SHA2(#{user_pwd}, 256)
+               , #{user_tel_no}
+               , 0)
     ]]>
   </insert>
 
